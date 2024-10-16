@@ -1,0 +1,24 @@
+// Fonction Insertion Sort
+function insertionSort(arr) {
+    // Parcours du tableau à partir du deuxième élément (index 1)
+    for (let i = 1; i < arr.length; i++) {
+        // Choisir l'élément à insérer dans la partie triée
+        let current = arr[i];
+        let j = i - 1;
+
+        // Déplacer les éléments de la séquence triée pour faire de la place à l'élément courant
+        while (j >= 0 && arr[j] > current) {
+            arr[j + 1] = arr[j];  // décalage à droite
+            j--;
+        }
+
+        // Insérer l'élément courant à la position correcte
+        arr[j + 1] = current;
+    }
+    return arr;  // Le tableau est trié
+}
+
+// Exemple d'utilisation
+let tableau = [12, 11, 13, 5, 6];
+console.log("Tableau avant le tri: ", tableau);
+console.log("Tableau après le tri: ", insertionSort(tableau));
